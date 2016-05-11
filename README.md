@@ -16,7 +16,7 @@ $ayuco = new Listener();
 
 // or without initial use
 $ayuco = new Ayuco\Listener()
-``
+```
 
 Register your commands.
 ```php
@@ -57,7 +57,7 @@ class MyCommand extends Command
 }
 ```
 
-Example for a clear cache commad.
+Example for a clear cache command.
 
 ```php
 use Ayuco\Command;

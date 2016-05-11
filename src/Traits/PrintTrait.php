@@ -20,10 +20,12 @@ trait PrintTrait
      * @param string $message Message to print.
      * @param array  $args    Message arguments. SPRINTF
      */
-    private function _print($message, $args = null)
+    protected function _print($message, $args = null)
     {
-        if ($args === null)
+        if ($args === null) {
             echo $message;
+            return;
+        }
         echo call_user_func_array(
             'sprintf',
             array_merge(
@@ -37,7 +39,7 @@ trait PrintTrait
      * Prints line break.
      * @since 1.0.0
      */
-    private function _lineBreak()
+    protected function _lineBreak()
     {
         echo "\n";
     }

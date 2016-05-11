@@ -35,6 +35,7 @@ class SetupCommand extends Command
             throw new NoticeException('Command "setup": setname command is not registered in ayuco.');
             
         try {
+            $this->_lineBreak();
             $this->_print('------------------------------');
             $this->_lineBreak();
             $this->_print('Wordpress MVC (AYUCO) Setup');
@@ -49,10 +50,13 @@ class SetupCommand extends Command
                 : str_replace(' ', '', ucwords(strtolower($namespace)))
             );
             $this->_print('------------------------------');
+            $this->_lineBreak();
             $this->_print('Your plugin namespace is "%s"', $namespace);
             $this->_lineBreak();
             $this->_print('Setup completed!');
+            $this->_lineBreak();
             $this->_print('------------------------------');
+            $this->_lineBreak();
         } catch (NoticeException $e) {
             throw new NoticeException('Command "setup": Failed! ' . $e->getMessage());
         }

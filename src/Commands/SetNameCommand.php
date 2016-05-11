@@ -48,10 +48,10 @@ class SetNameCommand extends Command
      */
     public function call($args = [])
     {
-        if (count($args) == 0 || empty($args[0]))
-            throw new NoticeException('Command "'. $key . '": Expecting a name.');
+        if (count($args) == 0 || empty($args[2]))
+            throw new NoticeException('Command "'.$this->key.'": Expecting a name.');
 
-        $this->setName($args[0]);
+        $this->setName($args[2]);
     }
 
     /**
@@ -63,7 +63,7 @@ class SetNameCommand extends Command
     public function setName($name)
     {
         if (empty($name))
-            throw new NoticeException('Command "'. $key . '": No name given.');
+            throw new NoticeException('Command "'.$this->key.'": No name given.');
 
         // Checkfor MVC configuration file
         $configFilename = file_exists($this->rootPath . '/config/plugin.php')
@@ -74,23 +74,23 @@ class SetNameCommand extends Command
             );
 
         if (empty($configFilename))
-            throw new NoticeException('Command "'. $key . '": No configuration file found.');
+            throw new NoticeException('Command "'.$this->key.'": No configuration file found.');
 
         $config = require_once $configFilename;
         $currentname = $config['namespace'];
 
         $type = preg_match('/plugin\.php/', $configFilename) ? 'plugin' : 'theme';
 
-        replace_in_file($currentname, $name, $configFilename);
+        $this->replaceInFile($currentname, $name, $configFilename);
 
-        replace_in_file( 
+        $this->replaceInFile( 
             'namespace ' . $currentname,
             'namespace ' . $name
             , $this->rootPath.'/'.$type.'/Main.php'
         );
 
         foreach (scandir($this->rootPath.'/'.$type.'/models') as $filename) {
-            replace_in_file( 
+            $this->replaceInFile( 
                 'namespace ' . $currentname,
                 'namespace ' . $name,
                 $this->rootPath.'/'.$type.'/models/' . $filename
@@ -98,24 +98,26 @@ class SetNameCommand extends Command
         }
 
         foreach (scandir($config['paths']['controllers']) as $filename) {
-            replace_in_file( 
+            $this->replaceInFile( 
                 'namespace ' . $currentname,
                 'namespace ' . $name,
                 $config['paths']['controllers'] . $filename
             );
-            replace_in_file( 
+            $this->replaceInFile( 
                 'use ' . $currentname,
                 'use ' . $name,
                 $config['paths']['controllers'] . $filename
             );
         }
 
-        replace_in_file( 
+        $this->replaceInFile( 
             '"' . $currentname,
             '"' . $name,
             $this->rootPath . '/composer.json'
         );
 
+        $this->_print('Namespace changed!');
+        $this->_lineBreak();
         exec( 'composer dump-autoload' );
     }
 

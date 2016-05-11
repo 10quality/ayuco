@@ -2,7 +2,7 @@
 
 namespace Ayuco;
 
-use Ayuco\Contracts\Command;
+use Ayuco\Contracts\Command as Contract;
 use Ayuco\Traits\PrintTrait;
 
 /**
@@ -13,7 +13,7 @@ use Ayuco\Traits\PrintTrait;
  * @copyright MIT
  * @version 1.0.0
  */
-abstract class Command implements Command
+abstract class Command implements Contract
 {
     use PrintTrait;
 

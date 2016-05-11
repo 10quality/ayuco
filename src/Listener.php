@@ -3,6 +3,7 @@
 namespace Ayuco;
 
 use Ayuco\Exceptions\NoticeException;
+use Ayuco\Traits\PrintTrait;
 
 /**
  * Ayuco Listener.
@@ -16,6 +17,8 @@ use Ayuco\Exceptions\NoticeException;
  */
 class Listener
 {
+    use PrintTrait;
+
     /**
      * Command-line arguments.
      * @since 1.0.0
@@ -113,10 +116,9 @@ class Listener
      * Interprets arguments and calls function.
      * @since 1.0.0
      */
-    protected function interpret()
+    public function interpret()
     {
         try {
-
             if (empty($this->argv) || count($this->argv) <= 1)
                 throw new NoticeException('No command given.');
 
@@ -139,9 +141,6 @@ class Listener
         if (!array_key_exists($commandKey, $this->commands))
             throw new NoticeException('Command "' . $commandKey .'" not found.');
 
-        unset($this->argv[0]);
-        unset($this->argv[1]);
-
         $this->commands[$commandKey]['inExecution'] = true;
         $this->commands[$commandKey]['handler']->call($this->argv);
     }
@@ -156,5 +155,6 @@ class Listener
     {
         if (!empty($message))
             print($message);
+        $this->_lineBreak();
     }
 }

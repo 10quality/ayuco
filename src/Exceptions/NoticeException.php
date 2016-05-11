@@ -2,6 +2,8 @@
 
 namespace Ayuco\Exceptions;
 
+use Exception;
+
 /**
  * Notice Exception.
  * - Exceptions that should be notified on command-line.

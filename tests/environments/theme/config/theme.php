@@ -1,6 +1,6 @@
 <?php
 return [
-    'namespace' => 'TestPlugin',
+    'namespace' => 'TestTheme',
     'paths' => [
         'controllers'   => __DIR__ . '/../controllers/',
         'views'         => __DIR__ . '/../views/',
