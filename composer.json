@@ -1,0 +1,12 @@
+{
+    "name": "10quality/ayuco",
+    "version": "1.0.0",
+    "license": [
+        "MIT"
+    ],
+    "autoload": {
+        "psr-4": {
+            "Ayuco\\": "/src"
+        }
+    }
+}
