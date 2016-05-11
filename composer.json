@@ -1,12 +1,30 @@
 {
     "name": "10quality/ayuco",
-    "version": "1.0.0",
-    "license": [
-        "MIT"
+    "description": "Command-line interface for the Wordpress-MVC framework.",
+    "homepage": "https://github.com/10quality/ayuco",
+    "keywords": [
+        "command-line",
+        "commands",
+        "php"
     ],
+    "type": "library",
+    "authors": [
+        {
+            "name": "Alejandro Mostajo",
+            "homepage": "http://about.me/amostajo"
+        },
+        {
+            "name": "10Quality",
+            "homepage": "http://www.10quality.com/"
+        }
+    ],
+    "license": "MIT",
+    "require-dev": {
+        "phpunit/phpunit": "4.4.*"
+    },
     "autoload": {
         "psr-4": {
-            "Ayuco\\": "/src"
+            "Ayuco\\": "src"
         }
     }
 }
