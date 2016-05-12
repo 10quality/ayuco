@@ -67,4 +67,15 @@ abstract class Command implements Contract
             return $this->$property;
         return;
     }
+
+    /**
+     * Cast to string.
+     * @since 1.0.0
+     *
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->key;
+    }
 }
