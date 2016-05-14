@@ -11,7 +11,7 @@ use Ayuco\Traits\PrintTrait;
  * @author Alejandro Mostajo <http://www.10quality.com>
  * @package Ayuco
  * @copyright MIT
- * @version 1.0.0
+ * @version 1.0.1
  */
 abstract class Command implements Contract
 {
@@ -30,6 +30,14 @@ abstract class Command implements Contract
      * @var string
      */
     protected $key = '';
+
+    /**
+     * Command description.
+     * Displayed on help command.
+     * @since 1.0.1
+     * @var string
+     */
+    protected $description = '';
 
     /**
      * Sets command listener.
@@ -56,6 +64,7 @@ abstract class Command implements Contract
     /**
      * Getter function call.
      * @since 1.0.0
+     * @since 1.0.1 changed comparison to switch for more properties.
      *
      * @param string $property Property name.
      *
@@ -63,8 +72,11 @@ abstract class Command implements Contract
      */
     public function __get($property)
     {
-        if ($property === 'key')
-            return $this->$property;
+        switch ($property) {
+            case 'key':
+            case 'description':
+                return $this->$property;
+        }
         return;
     }
 

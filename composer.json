@@ -1,6 +1,6 @@
 {
     "name": "10quality/ayuco",
-    "description": "Command-line interface for the Wordpress-MVC framework.",
+    "description": "Command-Line interface that can be used to execute commands written in PHP.",
     "homepage": "https://github.com/10quality/ayuco",
     "keywords": [
         "command-line",

@@ -2,6 +2,7 @@
 
 namespace Ayuco;
 
+use Ayuco\Commands\HelpCommand;
 use Ayuco\Exceptions\NoticeException;
 use Ayuco\Traits\PrintTrait;
 
@@ -13,7 +14,7 @@ use Ayuco\Traits\PrintTrait;
  * @author Alejandro Mostajo <http://www.10quality.com>
  * @package Ayuco
  * @copyright MIT
- * @version 1.0.0
+ * @version 1.0.1
  */
 class Listener
 {
@@ -43,6 +44,7 @@ class Listener
     /**
      * Default constructor.
      * @since 1.0.0
+     * @since 1.0.1 HelpCommands included on construct.
      *
      * @global array $argv Command-line arguments.
      */
@@ -51,6 +53,8 @@ class Listener
         global $argv;
         $this->argv = $argv;
         $this->input = fopen('php://stdin', 'r');
+        // Auto register help command.
+        $this->register(new HelpCommand);
     }
 
     /**
@@ -156,5 +160,21 @@ class Listener
         if (!empty($message))
             print($message);
         $this->_lineBreak();
+    }
+
+    /**
+     * Getter magic function.
+     * READ-ONLY properties.
+     * @since 1.0.1
+     *
+     * @param string $property Property name.
+     *
+     * @return mixed
+     */
+    public function __get($property)
+    {
+        if ($property === 'commands')
+            return $this->$property;
+        return;
     }
 }

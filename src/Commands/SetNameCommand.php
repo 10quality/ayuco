@@ -11,7 +11,7 @@ use Ayuco\Exceptions\NoticeException;
  * @author Alejandro Mostajo <http://www.10quality.com>
  * @package Ayuco
  * @copyright MIT
- * @version 1.0.0
+ * @version 1.0.1
  */
 class SetNameCommand extends Command
 {
@@ -21,6 +21,13 @@ class SetNameCommand extends Command
      * @var string
      */
     protected $key = 'setname';
+
+    /**
+     * Command description.
+     * @since 1.0.1
+     * @var string
+     */
+    protected $description = 'Changes project\'s namespace. Expects name as parameter.';
 
     /**
      * Projects root path.
