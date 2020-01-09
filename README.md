@@ -6,7 +6,7 @@
 
 Command-Line interface that can be used to execute commands written in PHP.
 
-**Note:** Commands included in this package (excluding help command) were written for Wordpress-MVC.
+**Note:** Commands included in this package (excluding help command) were written for WordPress-MVC.
 
 ## Usage
 
