@@ -44,7 +44,7 @@ class HelpCommand extends Command
             $this->_lineBreak();
             $this->_print('------------------------------');
             $this->_lineBreak();
-            $this->_print('Available commads:');
+            $this->_print('Available commands:');
             $this->_lineBreak();
             $this->_print('------------------------------');
             foreach ($commands as $command) {
