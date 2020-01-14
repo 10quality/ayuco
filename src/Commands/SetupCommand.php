@@ -52,10 +52,8 @@ class SetupCommand extends Command
             $this->_print('Enter your project\'s namespace (example: MyProject):');
             $this->_lineBreak();
             $namespace = $this->listener->getInput();
-            $command->setName(empty($namespace)
-                ? 'MyProject'
-                : str_replace(' ', '', ucwords(strtolower($namespace)))
-            );
+            $namespace = empty($namespace) ? 'MyProject' : str_replace(' ', '', ucwords(strtolower($namespace)));        
+            $command->setName($namespace);
             $this->_print('------------------------------');
             $this->_lineBreak();
             $this->_print('Your plugin namespace is "%s"', $namespace);
