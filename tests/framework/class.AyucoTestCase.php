@@ -1,4 +1,7 @@
 <?php
+
+use PHPUnit\Framework\TestCase;
+
 /**
  * Extends PHPUnit test case to added default
  * testing environment configuration.
@@ -6,9 +9,9 @@
  * @author Alejandro Mostajo <http://www.10quality.com>
  * @package Ayuco
  * @copyright MIT
- * @version 1.0.0
+ * @version 1.0.2
  */
-class AyucoTestCase extends PHPUnit_Framework_TestCase
+class AyucoTestCase extends TestCase
 {
     /**
      * Ayuco builder.

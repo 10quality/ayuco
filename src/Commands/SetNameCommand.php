@@ -11,7 +11,7 @@ use Ayuco\Exceptions\NoticeException;
  * @author Alejandro Mostajo <http://www.10quality.com>
  * @package Ayuco
  * @copyright MIT
- * @version 1.0.1
+ * @version 1.0.2
  */
 class SetNameCommand extends Command
 {
@@ -125,7 +125,7 @@ class SetNameCommand extends Command
 
         $this->_print('Namespace changed!');
         $this->_lineBreak();
-        exec( 'composer dump-autoload' );
+        exec( 'composer dump-autoload --no-plugins' );
     }
 
     /**
