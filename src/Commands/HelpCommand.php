@@ -57,6 +57,10 @@ class HelpCommand extends Command
             }
             $this->_print('------------------------------');
             $this->_lineBreak();
+            $this->_print('More information available at https://www.wordpress-mvc.com/v1/ayuco/');
+            $this->_lineBreak();
+            $this->_print('------------------------------');
+            $this->_lineBreak();
         } catch (NoticeException $e) {
             throw new NoticeException('Command "help": Failed! ' . $e->getMessage());
         }
