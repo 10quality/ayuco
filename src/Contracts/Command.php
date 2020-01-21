@@ -7,10 +7,11 @@ use Ayuco\Listener;
 /**
  * Command interface.
  *
- * @author Alejandro Mostajo <http://www.10quality.com>
+ * @author Alejandro Mostajo <http://about.me/amostajo>
+ * @copyright 10Quality <http://www.10quality.com>
+ * @license MIT
  * @package Ayuco
- * @copyright MIT
- * @version 1.0.0
+ * @version 1.0.3
  */
 interface Command
 {

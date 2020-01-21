@@ -11,10 +11,11 @@ use Ayuco\Traits\PrintTrait;
  * Acts as a Command-line interface.
  * Listens to comand line inputs to execute predifine commands.
  *
- * @author Alejandro Mostajo <http://www.10quality.com>
+ * @author Alejandro Mostajo <http://about.me/amostajo>
+ * @copyright 10Quality <http://www.10quality.com>
+ * @license MIT
  * @package Ayuco
- * @copyright MIT
- * @version 1.0.1
+ * @version 1.0.3
  */
 class Listener
 {
