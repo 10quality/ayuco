@@ -8,10 +8,11 @@ use Ayuco\Traits\PrintTrait;
 /**
  * Command base abstract clase.
  *
- * @author Alejandro Mostajo <http://www.10quality.com>
+ * @author Alejandro Mostajo <http://about.me/amostajo>
+ * @copyright 10Quality <http://www.10quality.com>
+ * @license MIT
  * @package Ayuco
- * @copyright MIT
- * @version 1.0.1
+ * @version 1.0.3
  */
 abstract class Command implements Contract
 {

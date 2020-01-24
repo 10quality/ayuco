@@ -6,10 +6,11 @@ use PHPUnit\Framework\TestCase;
  * Extends PHPUnit test case to added default
  * testing environment configuration.
  *
- * @author Alejandro Mostajo <http://www.10quality.com>
+ * @author Alejandro Mostajo <http://about.me/amostajo>
+ * @copyright 10Quality <http://www.10quality.com>
+ * @license MIT
  * @package Ayuco
- * @copyright MIT
- * @version 1.0.2
+ * @version 1.0.3
  */
 class AyucoTestCase extends TestCase
 {

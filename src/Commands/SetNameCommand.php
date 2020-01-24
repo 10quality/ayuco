@@ -8,10 +8,11 @@ use Ayuco\Exceptions\NoticeException;
 /**
  * Command that sets project name.
  *
- * @author Alejandro Mostajo <http://www.10quality.com>
+ * @author Alejandro Mostajo <http://about.me/amostajo>
+ * @copyright 10Quality <http://www.10quality.com>
+ * @license MIT
  * @package Ayuco
- * @copyright MIT
- * @version 1.0.2
+ * @version 1.0.3
  */
 class SetNameCommand extends Command
 {
