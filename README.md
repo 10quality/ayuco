@@ -47,6 +47,20 @@ If `filename` is named `ayuco.php` and `command_key` is `clear_cache`, command i
 php ayuco.php clear_cache
 ```
 
+### Arguments and command options
+
+Send arguments right after the `command_key`, for example:
+```bash
+php ayuco.php cache clear 
+```
+
+In the example above, `cache` will be the command key and `clear` will be an argument (in order, it will be `$arg[2]`).
+
+Send arguments as command options with the prefix `--`, for example:
+```bash
+php ayuco.php cache clear --debug --note="Cache clear note"
+```
+
 ### Create a custom command
 
 Create your own class command by extending from Ayuco base command class:
@@ -67,7 +81,6 @@ class MyCommand extends Command
 ```
 
 Example for a clear cache command.
-
 ```php
 use Ayuco\Command;
 
@@ -85,8 +98,71 @@ class ClearCacheCommand extends Command
 ```
 
 Registration in listener would be:
+
 ```php
 $ayuco->register(new ClearCacheCommand);
+```
+
+### Arguments and options
+
+For this command:
+```bash
+php ayuco.php cache clear 
+```
+
+The arguments can be accessed like:
+```php
+use Ayuco\Command;
+
+class CacheCommand extends Command
+{
+    protected $key = 'cache';
+
+    public function call($args = [])
+    {
+        // ayuco.php
+        $args[0];
+
+        // cache
+        $args[1];
+
+        // clear
+        $args[2];
+    }
+}
+```
+
+For this command:
+```bash
+php ayuco.php cache clear --debug --note="Cache clear note"
+```
+
+The options can be accessed like:
+```php
+use Ayuco\Command;
+
+class CacheCommand extends Command
+{
+    protected $key = 'cache';
+
+    public function call($args = [])
+    {
+        // ayuco.php
+        $args[0];
+
+        // cache
+        $args[1];
+
+        // clear
+        $args[2];
+
+        // --debug
+        $this->options['debug'];
+
+        // --note="..."
+        $this->options['note'];
+    }
+}
 ```
 
 ### Help command
