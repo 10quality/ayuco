@@ -16,7 +16,7 @@ class ArgsTest extends AyucoTestCase
      * Inits args command on every test.
      * @since 1.0.3
      */
-    public function setUp()
+    public function setUp(): void
     {
         $this->builder->register(ArgsCommand::class);
     }
