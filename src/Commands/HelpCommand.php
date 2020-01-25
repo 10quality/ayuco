@@ -58,7 +58,7 @@ class HelpCommand extends Command
             }
             $this->_print('------------------------------');
             $this->_lineBreak();
-            $this->_print('More information available at https://www.wordpress-mvc.com/v1/ayuco/');
+            $this->_print('More information available at https://github.com/10quality/ayuco');
             $this->_lineBreak();
             $this->_print('------------------------------');
             $this->_lineBreak();
