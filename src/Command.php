@@ -21,13 +21,15 @@ abstract class Command implements Contract
     /**
      * Listener.
      * @since 1.0.0
-     * @var Listener
+     * 
+     * @var \Ayuco\Listener
      */
     protected $listener;
 
     /**
      * Command key.
      * @since 1.0.0
+     * 
      * @var string
      */
     protected $key = '';
@@ -36,19 +38,39 @@ abstract class Command implements Contract
      * Command description.
      * Displayed on help command.
      * @since 1.0.1
+     * 
      * @var string
      */
     protected $description = '';
 
     /**
+     * Command options added via specia arguments arguments.
+     * @since 1.0.3
+     * 
+     * @var array
+     */
+    protected $options = [];
+
+    /**
      * Sets command listener.
      * @since 1.0.0
      *
-     * @param Listener $listener By reference listener.
+     * @param \Ayuco\Listener &$listener By reference listener.
      */
     public function setListener(Listener &$listener)
     {
         $this->listener = $listener;
+    }
+
+    /**
+     * Sets command options.
+     * @since 1.0.0
+     *
+     * @param array options
+     */
+    public function setOptions($options)
+    {
+        $this->options = $options;
     }
 
     /**

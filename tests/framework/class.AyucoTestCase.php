@@ -16,7 +16,7 @@ class AyucoTestCase extends TestCase
 {
     /**
      * Ayuco builder.
-     * @since 1.0
+     * @since 1.0.0
      * @var AyucoBuilder
      */
     protected $builder;
@@ -39,7 +39,7 @@ class AyucoTestCase extends TestCase
 
     /**
      * Constructs a test case with the given name.
-     * @since 1.0
+     * @since 1.0.0
      *
      * @param string $name
      * @param array  $data
@@ -49,13 +49,29 @@ class AyucoTestCase extends TestCase
     {
         parent::__construct($name, $data, $dataName);
         $this->builder = new AyucoBuilder();
-        $this->env['plugin']['path'] = ENV_PATH . $this->env['plugin']['path'];
-        $this->env['theme']['path'] = ENV_PATH . $this->env['theme']['path'];
+    }
+
+    /**
+     * Returns the results of the execution of a command.
+     * @since 1.0.3
+     * 
+     * @param string $command
+     * @param bool   $log
+     * 
+     * @return string|null 
+     */
+    public function _execCommand( $command, $log = false )
+    {
+        $execution = exec('php ' . $this->builder->build() . ' ' . $command);
+        if ($log)
+            $this->log($execution);
+        $this->builder->clear();
+        return $execution;
     }
 
     /**
      * Asserts the execution of a command.
-     * @since 1.0
+     * @since 1.0.0
      *
      * @param string $command Command to execute.
      * @param string $print   Last print message to compare to.
@@ -63,15 +79,11 @@ class AyucoTestCase extends TestCase
      *
      * @throws PHPUnit_Framework_AssertionFailedError
      */
-    public function assertCommand($command, $print = '', $message = 'Failed asseting command result.')
+    public function assertCommand($expected, $command, $message = 'Failed asseting command result.')
     {
-        $execution = exec('php ' . $this->builder->build() . ' ' . $command);
-        $this->builder->clear();
-        //$this->builder->log($execution);
-
         self::assertThat(
-            $execution == $print,
-            self::isTrue(),
+            $expected,
+            self::identicalTo($this->_execCommand($command)),
             $message
         );
     }

@@ -146,7 +146,28 @@ class Listener
         if (!array_key_exists($commandKey, $this->commands))
             throw new NoticeException('Command "' . $commandKey .'" not found.');
 
+        $options = [];
+        foreach ($this->argv as $key => $arg) {
+            if (strpos($arg, '--') !== 0)
+                continue;
+            if (strpos($arg, '=') === false) {
+                $options[str_replace('--', '', $arg)] = true;
+            } else {
+                $option = explode('=', $arg);
+                // Remove quotes
+                if (strlen($option[1])-1 === '"') {
+                    $option[1] = substr($option[1], 0, strlen($option[1])-1);
+                    if (strpos($option[1], '"') === 0)
+                        $option[1] = substr($option[1], 1, strlen($option[1])-1);
+                }
+                $options[str_replace('--', '', $option[0])] = $option[1];
+            }
+            unset($this->argv[$key]);
+        }
+        $this->argv = array_values($this->argv);
+
         $this->commands[$commandKey]['inExecution'] = true;
+        $this->commands[$commandKey]['handler']->setOptions($options);
         $this->commands[$commandKey]['handler']->call($this->argv);
     }
 

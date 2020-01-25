@@ -15,6 +15,6 @@ class HelpCommandTest extends AyucoTestCase
      */
     public function test()
     {
-        $this->assertCommand('help', '------------------------------');
+        $this->assertCommand('------------------------------', 'help');
     }
 }

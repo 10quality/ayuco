@@ -2,7 +2,7 @@
 use Ayuco\Command;
 
 /**
- * Testing command.
+ * Testing command that prints captured commands.
  *
  * @author Alejandro Mostajo <http://about.me/amostajo>
  * @copyright 10Quality <http://www.10quality.com>
@@ -10,22 +10,22 @@ use Ayuco\Command;
  * @package Ayuco
  * @version 1.0.3
  */
-class TestCommand extends Command
+class OptionsCommand extends Command
 {
     /**
      * Command key.
-     * @since 1.0.0
+     * @since 1.0.3
      * @var string
      */
-    protected $key = 'test';
+    protected $key = 'options';
     /**
      * Calls to command action.
-     * @since 1.0.0
+     * @since 1.0.3
      *
      * @param array $args Action arguments.
      */
     public function call($args = [])
     {
-        $this->_print('test');
+        $this->_print(json_encode($this->options));
     }
 }

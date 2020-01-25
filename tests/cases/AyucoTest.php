@@ -14,6 +14,7 @@ class AyucoTest extends AyucoTestCase
 {
     /**
      * Tests command registration.
+     * @since 1.0.0
      */
     public function testRegisterCommand()
     {
@@ -25,9 +26,10 @@ class AyucoTest extends AyucoTestCase
     }
     /**
      * Tests unknown command.
+     * @since 1.0.0
      */
     public function testUnknownCommand()
     {
-        $this->assertCommand('unknown', 'Command "unknown" not found.');
+        $this->assertCommand('Command "unknown" not found.', 'unknown');
     }
 }
