@@ -31,5 +31,8 @@
         "test": [
             "phpunit"
         ]
+    },
+    "require": {
+        "php-parallel-lint/php-console-color": "^1.0"
     }
 }

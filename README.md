@@ -165,6 +165,24 @@ class CacheCommand extends Command
 }
 ```
 
+### Coloring output
+
+Change the coloring of the output printed in the console using class `Ayuco\Coloring` static method `apply()`:
+```php
+use Ayuco\Coloring;
+use Ayuco\Command;
+
+class ColoringCommand extends Command
+{
+    public function call($args = [])
+    {
+        $this->_print(Coloring::apply('red', 'Print this message in red.'));
+    }
+}
+```
+
+You can read more about coloring [here](https://github.com/php-parallel-lint/PHP-Console-Color).
+
 ### Help command
 
 AYUCO automatically will register its own `help` command. This command can be used to display in `command-line` the list of registered commands, use it like:
