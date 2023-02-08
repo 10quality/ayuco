@@ -26,5 +26,10 @@
         "psr-4": {
             "Ayuco\\": "src"
         }
+    },
+    "scripts": {
+        "test": [
+            "phpunit"
+        ]
     }
 }
