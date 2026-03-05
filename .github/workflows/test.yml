@@ -2,9 +2,9 @@ name: PHP Testing
 
 on:
   push:
-    branches: [ "master" ]
+    branches: [ "v1.0" ]
   pull_request:
-    branches: [ "master" ]
+    branches: [ "v1.0" ]
 
 permissions:
   contents: read
