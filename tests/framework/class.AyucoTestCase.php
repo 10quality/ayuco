@@ -38,16 +38,12 @@ class AyucoTestCase extends TestCase
     ];
 
     /**
-     * Constructs a test case with the given name.
+     * Setup.
      * @since 1.0.0
-     *
-     * @param string $name
-     * @param array  $data
-     * @param string $dataName
      */
-    public function __construct($name = null, array $data = array(), $dataName = '')
+    public function setUp(): void
     {
-        parent::__construct($name, $data, $dataName);
+        parent::setUp();
         $this->builder = new AyucoBuilder();
     }
 

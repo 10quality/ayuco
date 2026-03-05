@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <phpunit backupGlobals="false"
-         backupStaticAttributes="false"
          bootstrap="tests/framework/bootstrap.php"
          colors="true"
-         convertErrorsToExceptions="true"
-         convertNoticesToExceptions="true"
-         convertWarningsToExceptions="true"
+         displayDetailsOnPhpunitDeprecations="true"
          stopOnFailure="true">
     <testsuites>
         <testsuite name="Package Test Suite">

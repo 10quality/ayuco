@@ -18,6 +18,7 @@ class ArgsTest extends AyucoTestCase
      */
     public function setUp(): void
     {
+        parent::setUp();
         $this->builder->register(ArgsCommand::class);
     }
     /**
