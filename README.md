@@ -2,6 +2,7 @@
 
 [![Latest Stable Version](https://poser.pugx.org/10quality/ayuco/v/stable)](https://packagist.org/packages/10quality/ayuco)
 [![Total Downloads](https://poser.pugx.org/10quality/ayuco/downloads)](https://packagist.org/packages/10quality/ayuco)
+![GitHub Workflow Status (with branch)](https://img.shields.io/github/actions/workflow/status/10quality/ayuco/test.yml)
 [![License](https://poser.pugx.org/10quality/ayuco/license)](https://packagist.org/packages/10quality/ayuco)
 
 Command-Line interface that can be used to execute commands written in PHP.
